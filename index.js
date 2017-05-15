@@ -1,36 +1,58 @@
 const personForm = document.querySelector('form')
+let flag = 0;
 
-const handlesubmit = (ev) => {
-    ev.preventDefault()
-    const form = ev.target
-    const details = document.querySelector('.details')
-
-    const personName = (form.personName.value)
-    //form.elements gives array
-
-    //details.textContent = personName
-    // inner html allows taggs
-    //details.innerHTML = '<em>' + personName + '</em>'
-   // details.innerHTML = `<em>${personName}</em>`
-    
-  //  const em = document.createElement('em')
-  //  em.textContent = personName;
-  //  details.appendChild(em);
-
-    const colorDiv = `
-    <div height = 50px width = 50px style = "background-color: ${hairColor}"></div>
-    `
-    details.innerHTML = `
-    <ul>
-        <li> Name = ${personName} </li>
-        <li> Hair Color = ${hairColor} </li>
-        <li> Birthplace = ${birthplace} </li>
-    </ul>`
-    //console.log(ev)
-    //debugger
+function ListMaker (input,label){
+  if(flag<4){
+  const li = document.createElement('li')
+  li.textContent = label + " " + input
+  ul.appendChild(li)
+  flag++
+  return}
 }
-personform.addEventListener("submit",handlesubmit)
+const ul = document.createElement('ul')
 
+const handleSubmit = (ev) => {
+  ev.preventDefault()
+  const form = ev.target
+  const details = document.querySelector('.details')
 
-//HW : add form values to `.details` using `document.createelement` and `appendchild` instead of innerhtml
-//bonus credit = break some functionality into a seperate function
+  const personName = form.personName.value
+  const hairColor = form.hairColor.value
+  const age = form.age.value
+  const birthplace = form.birthplace.value
+
+  // const elements = document.querySelectorAll(liststore)
+  // ListMaker(elements[0])
+  // for(let i=0,curr; curr = elements[i++];){
+  //   ListMaker(curr)
+  // }
+
+ const colorDiv = `<div style="height: 50px; width: 100px; background-color: ${hairColor}"></div>`
+    
+ details.appendChild(ul)
+ ListMaker(personName,"Name:")
+ ListMaker(hairColor,"Haircolor:")
+ ListMaker(age,"Age:")
+ ListMaker(birthplace,"Birthplace:")
+     
+  
+ 
+
+//   details.innerHTML = `
+//     <ul>
+//       <li>Name: ${personName}</li>
+//       <li>Hair Color: ${colorDiv}</li>
+//       <li>Age: ${age}</li>
+//       <li>Birthplace: ${birthplace}</li>
+//     </ul>
+//   `
+ 
+// const ul = document.createElement('ul')
+// const item = document.createElement('li')
+// item.textContent = colorDiv
+// ul.appendChild(item)
+// details.appendChild(ul)
+}
+
+personForm.addEventListener('submit', handleSubmit)
+
