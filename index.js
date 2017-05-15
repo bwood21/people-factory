@@ -13,9 +13,19 @@ personForm.onsubmit = (ev) => {
     //details.innerHTML = '<em>' + personName + '</em>'
    // details.innerHTML = `<em>${personName}</em>`
     
-    const em = document.createElement('em')
-    em.textContent = personName;
-    details.appendChild(em);
+  //  const em = document.createElement('em')
+  //  em.textContent = personName;
+  //  details.appendChild(em);
+
+    const colorDiv = `
+    <div height = 50px width = 50px style = "background-color: ${hairColor}"></div>
+    `
+    details.innerHTML = `
+    <ul>
+        <li> Name = ${personName} </li>
+        <li> Hair Color = ${hairColor} </li>
+        <li> Birthplace = ${birthplace} </li>
+    </ul>`
     //console.log(ev)
     //debugger
 }
