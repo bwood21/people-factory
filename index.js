@@ -1,6 +1,6 @@
 const personForm = document.querySelector('form')
 
-personForm.onsubmit = (ev) => {
+const handlesubmit = (ev) => {
     ev.preventDefault()
     const form = ev.target
     const details = document.querySelector('.details')
@@ -29,3 +29,4 @@ personForm.onsubmit = (ev) => {
     //console.log(ev)
     //debugger
 }
+personform.onsubmit = handlesubmit
