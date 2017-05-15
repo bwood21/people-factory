@@ -29,4 +29,8 @@ const handlesubmit = (ev) => {
     //console.log(ev)
     //debugger
 }
-personform.onsubmit = handlesubmit
+personform.addEventListener("submit",handlesubmit)
+
+
+//HW : add form values to `.details` using `document.createelement` and `appendchild` instead of innerhtml
+//bonus credit = break some functionality into a seperate function
