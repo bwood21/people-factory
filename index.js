@@ -9,6 +9,10 @@ function ListMaker (input,label){
   flag++
   return}
 }
+function renderColor(hairColor){
+  const colorDiv = `<div style="height: 50px; width: 100px; background-color: ${hairColor}"></div>`
+  return colorDiv
+}
 const ul = document.createElement('ul')
 
 const handleSubmit = (ev) => {
@@ -27,7 +31,7 @@ const handleSubmit = (ev) => {
   //   ListMaker(curr)
   // }
 
- const colorDiv = `<div style="height: 50px; width: 100px; background-color: ${hairColor}"></div>`
+ 
     
  details.appendChild(ul)
  ListMaker(personName,"Name:")
@@ -41,7 +45,7 @@ const handleSubmit = (ev) => {
 //   details.innerHTML = `
 //     <ul>
 //       <li>Name: ${personName}</li>
-//       <li>Hair Color: ${colorDiv}</li>
+//       <li>Hair Color: $renderColor(hairColor)}</li>
 //       <li>Age: ${age}</li>
 //       <li>Birthplace: ${birthplace}</li>
 //     </ul>
